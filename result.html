@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Kisilik Testi</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/Chart.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron head">
+        <p>Kişilik Testi Sonucu</p>
+        <h1 class="green-text">Yeşil Karakterli</h1>
+        <p>belki de <span class="blue-text">Mavi</span> karakterlisin ;)</p>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <canvas id="pieChart" width="400" height="400"></canvas>
+          <img class="person-img" src="images/person.png" alt="">
+        </div>
+        <div class="col-md-8">
+          <div class="panel colored-panel ">
+            <div class="panel-heading"><h3>Yeşil Karakterlilerin Temel Özellikleri</h3></div>
+            <div class="panel-body">
+              <ul>
+                <li>Orta yollu tiplerdir. </li>
+                <li>Dikkat çekici hatalarda bulunmazlar. </li>
+                <li>En belirgin yönleri her yerde mutlu olabilmeleri ve hallerinden memnuniyet duymalarıdır.</li>
+                <li>Sabırlıdırlar. </li>
+                <li>Ayırt edilmesi en güç olan ve zor anlaşılan kişilerdir. </li>
+                <li>İçten içe çok inatçıdırlar. Projeleri yarım bırakabilirler.</li>
+                <li>Pek fazla kimseye hayır diyemezler. Barışçıl ve fedakardırlar. </li>
+                <li>En çok önemsedikleri şey çevreden saygı görmektir. </li>
+                <li>Daha duygulu ve heyecanlıdırlar. </li>
+                <li>Gruplarla uyumludurlar.</li>
+                <li>Kendilerini ön plana çıkarmaya çalışmazlar. Başka insanların katkılarındaki değeri görme konusunda oldukça yeteneklidirler. </li>
+                <li>Uyumlu ilişkilere çok değer verirler. </li>
+                <li>Başka insanların hislerine karşı duyarlıdırlar. </li>
+                <li>Çok hareketli ortamları sevmezler. İnce ve düşündürücü espiri  anlayışına sahiptirler. Kendileriyle barışıktırlar. </li>
+                <li>Çok rahattırlar. Çatışmadan çok çekinirler.</li>
+                <li>Doğal arabulucudurlar. </li>
+                <li>Çok sabırlıdırlar. İçlerinde fırtınalar koparken dışarıdan sakin görünebilirler. Kimseyi kırmak istemezler.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-top:20px;">
+        <div class="col-md-5">
+          <div class="panel colored-panel ">
+            <div class="panel-heading">
+              <h3>Karakter renklerine gore kisiler dagilimi</h3>
+            </div>
+            <div class="panel-body">
+              <p>senin gibi 362 kisi var :)</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <img style="padding-top:50px;width:100%;" src="images/rightarrow.png" alt="">
+        </div>
+        <div class="col-md-5">
+              <canvas id="barChart" width="500" height="300"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $().ready(function(){
+
+        var ctx = $("#pieChart");
+        var data = {
+            labels: ["Yeşil", "Mavi", "Sarı", "Kırmızı"],
+            datasets: [
+                {
+                    data: [16, 5, 3, 6],
+                    backgroundColor: [
+                        "#8BC34A",
+                        "#01579B",
+                        "#FFC107",
+                        "#F44336"
+                    ],
+                    borderWidth: 1
+                }]
+        };
+        var myPieChart = new Chart(ctx,{
+            type: 'pie',
+            data: data,
+            options: {
+                legend: false,
+                hover: {
+                    mode: 'index'
+                }
+            }
+        });
+
+        var bctx = $("#barChart");
+        var data = {
+            labels: ["Yeşil", "Mavi", "Sarı", "Kırmızı"],
+            datasets: [
+                {
+                    label: "karakter renklerine gore kisiler dagilimi",
+                    backgroundColor: [
+                        "#8BC34A",
+                        "#01579B",
+                        "#FFC107",
+                        "#F44336"
+                    ],
+                    borderWidth: 0,
+                    data: [65, 59, 80, 81],
+                }
+            ]
+        };
+
+        var myBarChart = new Chart(bctx,{
+            type: 'bar',
+            data: data,
+            options:{
+              legend: {
+                display:false
+              }
+            }
+        });
+
+        
+      });
+
+    </script>
+  </body>
+</html>

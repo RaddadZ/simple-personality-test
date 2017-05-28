@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Kisilik Testi</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+      $().ready(function(){
+
+        var sorular = $('.sorular').find('.soru');
+        var nextbtn = $('#next');
+        var finishbtn = $('#finish');
+        var alert = $('#alert');
+        var bar = document.getElementById("myBar"); 
+
+        alert.hide();
+        // console.log(sorular);
+        var i=0;
+        $.each(sorular,function() {
+          $(this).hide();
+        });
+        sorular.eq(i).show();
+        i++;
+        nextbtn.on('click', function(){
+              if(sorular.eq(i-1).find('input:checked').length<=1)
+              {
+                alert.fadeIn(500);
+                setTimeout(function(){
+                 alert.fadeOut(500);
+                },5000);
+              }else {
+                bar.style.width = i*(100/sorular.length) + '%'; 
+                sorular.eq(i-1).fadeOut(500);
+                setTimeout(function () {
+                    sorular.eq(i).fadeIn(500);
+                    i++;
+                    if (i>=sorular.length) {
+                      nextbtn.fadeOut(500);
+                      setTimeout(function(){
+                        finishbtn.fadeIn(500);
+                      }, 500);
+                    };
+                }, 500);
+              };
+        });
+
+        finishbtn.on('click', function  (e) {
+          e.preventDefault();
+          if(sorular.eq(i-1).find('input:checked').length<=1){
+            alert.fadeIn(500);
+            setTimeout(function(){
+              alert.fadeOut(500);
+            },5000);
+          } else {
+            bar.style.width = '100%';
+            bar.style.backgroundColor = "#8BC34A";
+            setTimeout(function(){
+              $('#myForm').submit();// submit
+            },1000);
+          };
+        });
+
+
+      });
+
+    </script>
+
+    </style>
+  </head>
+  <body>
+    <div class="jumbotron head head-index">
+      <div class="container">
+        <h1>Kişilik Testi</h1>
+        <p>Test sizin ağırlıklı olarak hangi gruba ait olduğunuzu ortaya çıkaracaktır. Testi işaretlerken şu anda sahip olduğunuz düşünceye göre işaretlemeye özen gösteriniz.</p>
+      </div>
+    </div>
+    <div class="container">
+      
+      <div  class="row">
+        <div class="col-lg-12">
+          <div class="progressBar">
+            <div id="myBar" class="bar"></div>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <div id="sorular" class="sorular">
+            <div class="soru">
+              <h4>
+                <small>1</small>Aşağıdaki beyitlerden hangisi sizi daha iyi anlatır?
+              </h4>
+              <ol type="A">
+                <li>
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="1" name="optionsRadios40" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="1" name="optionsRadios41" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="radio-inline radio-text">
+                    Güçlü, kararlı, girişken ve doğuştan liderim Düşer kalkar, yoluma devam ederim
+                  </div>
+                </li>
+                <li>
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="2" name="optionsRadios40" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="2" name="optionsRadios41" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="radio-inline radio-text">
+                    Hayata anlamlı renkler katar eğlenceyi severim Ömür boyu herkesin mutlu ve neşeli olmasını dilerim.
+                  </div>
+                </li>
+                <li>
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="3" name="optionsRadios40" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="3" name="optionsRadios41" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="radio-inline radio-text">
+                    Her anımı huzurlu ve sakin geçirmek isterim Kavga gürültü sevmem, işlerimde en kolay yolu seçerim.
+                  </div>
+                </li>
+                <li>
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="4" name="optionsRadios40" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="4" name="optionsRadios41" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Her şeyin mükemmel, düzgün, kusursuz olmasını isterim İlişkilerimde saygılı ve mesafeli olmayı severim.
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <div class="soru">
+              <h4>
+                <small>2</small>Genellikle hangi tempoda ve nasıl konuşursunuz?
+              </h4>
+              <ol type="A">
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="5" name="optionsRadios50" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="5" name="optionsRadios51" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Hızlı ve sonuca yönelik
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="6" name="optionsRadios50" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="6" name="optionsRadios51" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Çok hızlı, heyecanlı ve eğlenceli
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="7" name="optionsRadios50" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="7" name="optionsRadios51" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Daha yavaş ve sakin
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="8" name="optionsRadios50" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="8" name="optionsRadios51" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Normal ve söyleyeceklerimi aklımda tartarak
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <div class="soru">
+              <h4>
+                <small>3</small>Bir işe motive olmanızı sağlayan en önemli unsur hangisidir?
+              </h4>
+              <ol type="A">
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="9" name="optionsRadios60" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="9" name="optionsRadios61" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Sonuçları düşünmek
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="10" name="optionsRadios60" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="10" name="optionsRadios61" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Onaylanmak, takdir edilmek
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="11" name="optionsRadios60" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="11" name="optionsRadios61" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Guruptaki arkadaşlarımın desteği
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="12" name="optionsRadios60" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="12" name="optionsRadios61" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Etkinlik, düzen ve disiplin
+                  </div>
+                </li>
+                
+              </ol>
+            </div><!-- 
+            <div class="soru">
+              <h4>
+                <small>4</small>Çalışma tarzınız hangisine uygundur?
+              </h4>
+              <ol type="A">
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="13" name="optionsRadios70" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="13" name="optionsRadios71" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Yoğun ve hızlıyımdır. Aynı anda birkaç iş bir arada yapabilirim.
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="14" name="optionsRadios70" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="14" name="optionsRadios71" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Özgür bir ortamda çalışırım. İnsan ilişkileri odaklıyımdır.
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="15" name="optionsRadios70" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="15" name="optionsRadios71" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Ön planda olmayan; ama gruba her türlü desteği veren bir yapım vardır.
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="16" name="optionsRadios70" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="16" name="optionsRadios71" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Ayrıntıları önemserim ve tek bir konuya daklanarak çalışırım.
+                  </div>
+                </li>
+                
+              </ol>
+            </div>
+            <div class="soru">
+              <h4>
+                <small>5</small>Çalışma temponuzu nasıl değerlendiriyorsunuz?
+              </h4>
+              <ol type="A">
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="17" name="optionsRadios80" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="17" name="optionsRadios81" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Hızlı bir tempoda çalışır, çabuk karar almayı severim.
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="18" name="optionsRadios80" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="18" name="optionsRadios81" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    İşlerin, rutin ve sıkıcı olmadığı ortamlarda yüksek motivasyonla çalışırım.
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="19" name="optionsRadios80" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="19" name="optionsRadios81" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Nadiren aceleciyimdir. Geçde olsa üstlendiğim işi bitiririm.
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="20" name="optionsRadios80" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="20" name="optionsRadios81" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Ayrıntılı düşünerek karar veririm. İş bitirici bir tempoyla çalışırım.
+                  </div>
+                </li>
+                
+              </ol>
+            </div>
+            <div class="soru">
+              <h4>
+                <small>6</small>Hangisi sizi daha çok rahatsız eder?
+              </h4>
+              <ol type="A">
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="21" name="optionsRadios90" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="21" name="optionsRadios91" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Zaman israfı ve işlerin gecikmesi
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="22" name="optionsRadios90" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="22" name="optionsRadios91" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Tekrar gerektiren işler ve monotonluk
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="23" name="optionsRadios90" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="23" name="optionsRadios91" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Çatışma ortamı ve anlaşmazlıklar
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="24" name="optionsRadios90" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="24" name="optionsRadios91" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Yanılmak ve yapılan hatanın tekrarlanması
+                  </div>
+                </li>
+                
+              </ol>
+            </div>
+            <div class="soru">
+              <h4>
+                <small>7</small>Bulunduğunuz gruplarda hangi konumda daha başarılı olursunuz?
+              </h4>
+              <ol type="A">
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="25" name="optionsRadios100" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="25" name="optionsRadios101" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Olaylara yön veren ve otoriteyi kullanan
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="26" name="optionsRadios100" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="26" name="optionsRadios101" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    İnsanları motive eden ve neşelendiren
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="27" name="optionsRadios100" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="27" name="optionsRadios101" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Uzlaştırıcı ve grup içindeki uyumu sağlayan
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="28" name="optionsRadios100" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="28" name="optionsRadios101" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Bilgi sağlayıcı, araştırıcı ve olayları takip eden
+                  </div>
+                </li>
+                
+              </ol>
+            </div>
+            <div class="soru">
+              <h4>
+                <small>8</small>Hangisi sizi daha çok strese sokar?
+              </h4>
+              <ol type="A">
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="29" name="optionsRadios110" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="29" name="optionsRadios111" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Olaylar üzerindeki güç ve kontrolümün azaldığını hissetmek
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="30" name="optionsRadios110" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="30" name="optionsRadios111" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Sıkıcı, rutin işler yapılan bir ortamda bulunmak
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="31" name="optionsRadios110" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="31" name="optionsRadios111" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Beni aşacağını düşündüğüm sorumluluklar Üstlenmek
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="32" name="optionsRadios110" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="32" name="optionsRadios111" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Düzensiz ortamlar ve eksik yapılan işler
+                  </div>
+                </li>
+                
+              </ol>
+            </div>
+            <div class="soru">
+              <h4>
+                <small>9</small>Bir öğrenci olsanız ve öğretmeniniz sınav kağıdınızı ikinci defa incelediğinde puanınızı artırdığını söylese, nasıl bir
+              </h4>
+              <ol type="A">
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="33" name="optionsRadios120" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="33" name="optionsRadios121" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Bunu zaten hak ettiğimi düşünürüm.
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="34" name="optionsRadios120" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="34" name="optionsRadios121" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Çok sevinirim ve sevincimi belli ederim.
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="35" name="optionsRadios120" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="35" name="optionsRadios121" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Hocama teşekkür eder ve saygı duyarım.
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="36" name="optionsRadios120" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="36" name="optionsRadios121" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Hocamın nerede hata yaptığını merak eder, kağıdımı görmek isterim.
+                  </div>
+                </li>
+                
+              </ol>
+            </div>
+            <div class="soru">
+              <h4>
+                <small>10</small>Saatler sürecek bir iş toplantısına katılmanız gerektiğinde aşağıdakilerden hangisini benimsersiniz?
+              </h4>
+              <ol type="A">
+                <li>
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="37" name="optionsRadios130" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="37" name="optionsRadios131" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="radio-inline radio-text">
+                    Konunun ana hatlarının konuşulması için, sonucun belli olmasından hemen sonra çıkmayı tercih ederim.
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="38" name="optionsRadios130" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="38" name="optionsRadios131" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Toplantı eğlenceli bir şekilde devam ettiğinde sonuna kadar kalmayı, sıkıcı olmaya başladığında erken çıkmayı tercih ede
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="39" name="optionsRadios130" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="39" name="optionsRadios131" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Toplantının huzur içinde geçmesi ve güzel kararlar çıkması için üstüme düşeni yaparım.
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="40" name="optionsRadios130" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="40" name="optionsRadios131" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Toplantıya vaktinden önce gelir, tüm detayları not eder ve bir değerlendirme yapmak için geç çıkarım.
+                  </div>
+                </li>
+                
+              </ol>
+            </div>
+            <div class="soru">
+              <h4>
+                <small>11</small>Kendinizde gördüğünüz en zayıf yönünüz hangisidir?
+              </h4>
+              <ol type="A">
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="41" name="optionsRadios140" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="41" name="optionsRadios141" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    İnsanlar işleri istediğim gibi yapmadığında ve seri olmadıklarında sinirlenmek
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="42" name="optionsRadios140" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="42" name="optionsRadios141" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Düzensiz, dağınık ve programsız olmak
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="43" name="optionsRadios140" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="43" name="optionsRadios141" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Kimseye hayır diyememek ve başkalarının işine koşarken kendi işimi aksatmak
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="44" name="optionsRadios140" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="44" name="optionsRadios141" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Her şeyin kusursuz ve mükemmel olmasını istemek, İnsanlar buna uymadığında sinirlenmek
+                  </div>
+                </li>
+                
+              </ol>
+            </div>
+            <div class="soru">
+              <h4>
+                <small>12</small>Kendinizde gördüğünüz en güçlü yönünüz hangisidir?
+              </h4>
+              <ol type="A">
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="45" name="optionsRadios150" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="45" name="optionsRadios151" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Kısa sürede karar alan ve harekete geçen yapım
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="46" name="optionsRadios150" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="46" name="optionsRadios151" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Girdiğim ortamlara neşe ve heyecan katan tarafım
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="47" name="optionsRadios150" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="47" name="optionsRadios151" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Her türlü ortama uyum sağlama ve çatışmaları önleme gayretim
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="48" name="optionsRadios150" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="48" name="optionsRadios151" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Her şeyi planlı, programlı ve düzenli yapma huyum
+                  </div>
+                </li>
+                
+              </ol>
+            </div>
+            <div class="soru">
+              <h4>
+                <small>13</small>Aşağıdaki ifadelerden hangisi sizi daha iyi   tanımlar?
+              </h4>
+              <ol type="A">
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="49" name="optionsRadios160" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="49" name="optionsRadios161" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Güçlü, kararlı, otoriter ve yönlendirici
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="50" name="optionsRadios160" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="50" name="optionsRadios161" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Popüler, neşeli, sevimli ve muzip
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="51" name="optionsRadios160" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="51" name="optionsRadios161" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Barışçıl, sevecen, uyumlu ve sakin
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="52" name="optionsRadios160" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="52" name="optionsRadios161" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Tertipli, düzenli, disiplinli ve planlı
+                  </div>
+                </li>
+                
+              </ol>
+            </div>
+            <div class="soru">
+              <h4>
+                <small>14</small>Çalışma masanızda nelere dikkat edersiniz?
+              </h4>
+              <ol type="A">
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="53" name="optionsRadios170" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="53" name="optionsRadios171" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Öncelik verdiğim şeyleri yapacak şekilde düzenlenmiş sade bir masayı tercih ederim.
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="54" name="optionsRadios170" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="54" name="optionsRadios171" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    İnsanlara karma karışık gelen; ama benim aradığım her şeyi bulduğum bir masada çalışırım.
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="55" name="optionsRadios170" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="55" name="optionsRadios171" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Önce masamın üzerine gerekli olan her türlü araç gereci koyarım. Sık sık kalkarak enerjimi harcamak istemem.
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="56" name="optionsRadios170" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="56" name="optionsRadios171" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    İyi bir iş çıkarmam için masam son derece derli-toplu ve düzenli olmalıdır.
+                  </div>
+                </li>
+                
+              </ol>
+            </div>
+            <div class="soru">
+              <h4>
+                <small>15</small>Ertesi gün çözülmesi gereken bir problem varsa o   akşamki ruh haliniz nasıl olur?
+              </h4>
+              <ol type="A">
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input checked="checked" value="57" name="optionsRadios180" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input checked="checked" value="57" name="optionsRadios181" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Çok büyük tedirginlik duymam; çünkü ertesi gün o işi olması gerektiği gibi yapacağımdan eminimdir.
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="58" name="optionsRadios180" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="58" name="optionsRadios181" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Çok tedirginlik duymam; çünkü nasıl olsa işler bir şekilde hallolacaktır.
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="59" name="optionsRadios180" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="59" name="optionsRadios181" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Sorumluluğun üstümde olmasından dolayı tedirginlik duyarım.
+                  </div>
+                </li>
+                
+                <li>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="60" name="optionsRadios180" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline">
+                    <label class="radio">
+                      <input value="60" name="optionsRadios181" type="radio">
+                      <span class="outer">
+                        <span class="inner"></span>
+                      </span>
+                    </label>
+                  </div>
+                  
+                  <div class="radio-inline radio-text">
+                    Tedirginlik duyarım ve gecenin büyük bir bölümünde problemin nasıl çözüleceğiyle ilgili planlar yaparım.
+                  </div>
+                </li>
+                
+              </ol>
+            </div> -->
+          </div>
+        </div>
+        <button  id="next" class="button" style="vertical-align:middle"><span>bir sonraki</span></button>
+        <form id="myForm">
+          <button  id="finish" class="button finish" style="vertical-align:middle;display:none;"><span>Bitir</span></button>
+        </form>
+        <h4 id="alert" class="red-text">en az iki secenek isaretlemeniz gerekiyor</h4>
+      </div>
+    </div>
+  </body>
+</html>
